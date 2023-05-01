@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 app.post('/events', (req, res) => {
     const event = req.body;
+    console.log(`event-bus: event received: ${event}`);
     events.push(event);
     axios.post('http://posts-srv:4000/events', event).catch((err) => console.log(err.message));
     // axios.post('http://localhost:4001/events', event).catch((err) => console.log(err.message));
